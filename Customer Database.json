@@ -1,0 +1,176 @@
+{
+  "name": "Customer Database",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "ROOM BOOKING",
+        "formDescription": "Book your room ",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Name ",
+              "placeholder": "Enter your name",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Email",
+              "fieldType": "email",
+              "placeholder": "Enter your email",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Phone Number",
+              "placeholder": "Enter your phone number",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Room ",
+              "fieldType": "dropdown",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "Single Bed"
+                  },
+                  {
+                    "option": "Double Bed"
+                  },
+                  {
+                    "option": "Furnished"
+                  }
+                ]
+              },
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "11e5c0f7-cc36-4e2a-b20c-b16970881c41",
+      "name": "On form submission",
+      "webhookId": "f2f9974b-17e0-46a8-9a34-9220c59dcf04"
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appFJchS9rOHh3KE7",
+          "mode": "list",
+          "cachedResultName": "Customer Database",
+          "cachedResultUrl": "https://airtable.com/appFJchS9rOHh3KE7"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbllVc56Gf8KFZszk",
+          "mode": "list",
+          "cachedResultName": "Table 1",
+          "cachedResultUrl": "https://airtable.com/appFJchS9rOHh3KE7/tbllVc56Gf8KFZszk"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Name": "={{ $json['Name '] }}",
+            "Email": "={{ $json.Email }}",
+            "Phone Number": "={{ $json['Phone Number'] }}",
+            "Room": "={{ $json['Room '] }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Phone Number",
+              "displayName": "Phone Number",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Room",
+              "displayName": "Room",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        220,
+        0
+      ],
+      "id": "14fc32b9-7148-4497-b0b2-18df6b5fc571",
+      "name": "Create a record",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "uYBrGgjPBqZXs43r",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "Create a record",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "9a3b5aec-0bf8-4f44-8275-23aa739a3790",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "e45262bb4f8d4f03645ab4e28d1edd7562b00de7d17ab8f4ee70acc71188fb50"
+  },
+  "id": "otLM4Pv5C90PbNUK",
+  "tags": []
+}
